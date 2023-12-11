@@ -1,0 +1,179 @@
+/* Styling for the body */
+body {
+    background-color: #E3E7E8;
+    font-family: system-ui;
+}
+
+/* Styling for the main container */
+.container {
+    width: 1000px;
+    margin: auto;
+    transition: 0.5s;
+    /* Smooth transition effect */
+}
+
+/* Styling for the header section */
+header {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    margin-top: 50px;
+}
+
+/* Styling for the shopping cart icon */
+header .shopping {
+    position: relative;
+    text-align: right;
+}
+
+/* Styling for the shopping cart icon image */
+header .shopping img {
+    width: 40px;
+}
+
+/* Styling for the notification quantity badge */
+header .shopping span {
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    padding: 3px 10px;
+}
+
+/* Styling for the product list */
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 50px;
+}
+
+/* Styling for each product item */
+.list .item {
+    text-align: center;
+    background-color: #DCE0E1;
+    padding: 20px;
+    box-shadow: 0 50px 50px #757676;
+    letter-spacing: 1px;
+}
+
+/* Styling for the product image within each item */
+.list .item img {
+    width: 90%;
+    height: 430px;
+    object-fit: cover;
+}
+
+/* Styling for the title of each product */
+.list .item .title {
+    font-weight: 600;
+}
+
+/* Styling for the price of each product */
+.list .item .price {
+    margin: 10px;
+}
+
+/* Styling for the "Add to Cart" button */
+.list .item button {
+    background-color: #1C1F25;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+}
+
+/* Styling for the fixed position shopping cart */
+.card {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 500px;
+    background-color: #453E3B;
+    height: 100vh;
+    transition: 0.5s;
+    /* Smooth transition effect */
+}
+
+/* Styling for the active state of the shopping cart */
+.active .card {
+    left: calc(100% - 500px);
+}
+
+/* Styling for the active state of the main container */
+.active .container {
+    transform: translateX(-200px);
+}
+
+/* Styling for the title in the shopping cart */
+.card h1 {
+    color: #E8BC0E;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for the checkout section in the shopping cart */
+.card .checkOut {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Styling for individual checkout buttons */
+.card .checkOut div {
+    background-color: #f0660b;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Styling for the second checkout button */
+.card .checkOut div:nth-child(2) {
+    background-color: #1C1F25;
+    color: #fff;
+}
+
+/* Styling for the list of items in the shopping cart */
+.listCard li {
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
+}
+
+/* Styling for individual elements within the list of items */
+.listCard li div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for the image within the list of items */
+.listCard li img {
+    width: 90%;
+}
+
+/* Styling for buttons within the list of items */
+.listCard li button {
+    background-color: #fff5;
+    border: none;
+}
+
+/* Styling for the count display within the list of items */
+.listCard .count {
+    margin: 0 10px;
+}
