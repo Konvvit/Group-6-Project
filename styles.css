@@ -17,6 +17,10 @@ header {
     display: grid;
     grid-template-columns: 1fr 50px;
     margin-top: 50px;
+    z-index: 1000; /* Makes sure the header is above other content */
+    position: sticky; /* Added - Makes the header stick to the top */
+    top: 0; /* Added - Position at the top */
+    background-color: rgba(197, 98, 27, 0.6);
 }
 
 /* Styling for the shopping cart icon */
