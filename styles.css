@@ -44,6 +44,26 @@ header .shopping span {
     padding: 3px 10px;
 }
 
+.categories {
+    display: flex;
+    justify-content: space-around;
+}
+
+.category-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #fff;
+    border: 1px solid #d6d5d5;
+    cursor: pointer;
+}
+
+.category-btn.active {
+    background-color: #1C1F25;
+    color: #fff;
+}
+.category-btn:not(.active):hover {
+    background-color: #f3f0f0;
+}
 /* Styling for the product list */
 .list {
     display: grid;
