@@ -2,6 +2,7 @@
 body {
     background-color: #E3E7E8;
     font-family: system-ui;
+    /* background-image: url('image/pngtree.jpg'); */
 }
 
 /* Styling for the main container */
@@ -17,6 +18,11 @@ header {
     display: grid;
     grid-template-columns: 1fr 50px;
     margin-top: 50px;
+    background-image: url('image/pngtree.jpg');
+    background-size: cover;
+    background-position: center;
+    /* text-align: center; */
+    padding: 100px;
 }
 
 /* Styling for the shopping cart icon */
@@ -42,6 +48,7 @@ header .shopping span {
     top: -5px;
     left: 80%;
     padding: 3px 10px;
+
 }
 
 /* Styling for the product list */
@@ -176,4 +183,48 @@ header .shopping span {
 /* Styling for the count display within the list of items */
 .listCard .count {
     margin: 0 10px;
+}
+.filter {
+    margin-top: 20px;
+    background-color: #809a9c;
+    padding: 20px;
+}
+
+.filter label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.dropdown {
+    display: inline-block;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #9e8383;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn {
+    background-color: #af4c4c;
+    color: white;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }

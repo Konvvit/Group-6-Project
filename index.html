@@ -23,6 +23,16 @@
                 <img src="image/shopping.svg" alt="Shopping Cart">
                 <span class="quantity">0</span>
             </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Lista</button>
+                <div class="dropdown-content">
+                <a href="#">Meny</a>
+                <a href="#">Om oss</a>
+                <a href="#">Hejhej</a>
+                </div>
+            </div>
+
         </header>
 
         <!-- Product list section -->
@@ -46,6 +56,12 @@
                 <button onclick="addToCard(1)">Add To Cart</button>
             </div>
             <!-- Add more product items as needed -->
+            <div class="item" data-id="3" data-name="PRODUCT NAME 3" data-image="2.PNG" data-price="149">
+                <img src="image/2.PNG" alt="Product 3">
+                <div class="title">PRODUCT NAME 3</div>
+                <div class="price">149kr</div>
+                <button onclick="addToCard(2)">Add To Cart</button>
+            </div>
         </div>
     </div>
 
@@ -62,6 +78,10 @@
             <div class="total">Confirm</div>
             <div class="closeShopping">Close</div>
         </div>
+    </div>
+    <div class="filter">
+        <label for="filterInput">Filter:</label>
+        <input type="text" id="filterInput" placeholder="Type to filter">
     </div>
 
     <!-- JavaScript file for handling dynamic functionality -->

@@ -1,4 +1,3 @@
-// Selecting elements from the DOM
 let openShopping = document.querySelector('.shopping');
 let closeShopping = document.querySelector('.closeShopping');
 let list = document.querySelector('.list');
@@ -6,16 +5,13 @@ let listCard = document.querySelector('.listCard');
 let body = document.querySelector('body');
 let total = document.querySelector('.total');
 let quantity = document.querySelector('.quantity');
+let filterInput = document.querySelector('#filterInput');
 
-// Event listener for opening the shopping cart
-openShopping.addEventListener('click', () => {
-    body.classList.add('active');
-});
-
-// Event listener for closing the shopping cart
-closeShopping.addEventListener('click', () => {
-    body.classList.remove('active');
-});
+let products = [
+    { id: 1, name: 'PRODUCT NAME 1', image: '1.PNG', price: 120 },
+    { id: 2, name: 'PRODUCT NAME 2', image: '2.PNG', price: 124 },
+    { id: 3, name: 'PRODUCT NAME 3', image: '2.PNG', price: 149 }
+];
 
 // Array to store selected items in the cart
 let listCards = [];
@@ -92,7 +88,52 @@ function changeQuantity(index, quantity) {
     reloadCard();
 }
 
+// Function to filter products based on the input value
+function filterProducts() {
+    let filterValue = filterInput.value.toLowerCase();
+
+    // Filter products based on the input value
+    let filteredProducts = products.filter(product => product.name.toLowerCase().includes(filterValue));
+
+    // Update the displayed products
+    displayProducts(filteredProducts);
+}
+
+// Function to display products on the page
+function displayProducts(products) {
+    list.innerHTML = '';
+
+    products.forEach((product) => {
+        let productElement = document.createElement('div');
+        productElement.classList.add('item');
+        productElement.dataset.id = product.id;
+        productElement.dataset.name = product.name;
+        productElement.dataset.image = product.image;
+        productElement.dataset.price = product.price;
+
+        productElement.innerHTML = `
+            <img src="image/${product.image}" alt="${product.name}">
+            <div class="title">${product.name}</div>
+            <div class="price">${product.price}kr</div>
+            <button onclick="addToCard(${product.id - 1})">Add To Cart</button>`;
+
+        list.appendChild(productElement);
+    });
+}
 
 
-// No need for initApp as the products are already defined in HTML
+// Event listener for opening the shopping cart
+openShopping.addEventListener('click', () => {
+    body.classList.add('active');
+});
 
+// Event listener for closing the shopping cart
+closeShopping.addEventListener('click', () => {
+    body.classList.remove('active');
+});
+
+// Event listener for filtering products
+filterInput.addEventListener('input', filterProducts);
+
+// Initial display of products
+displayProducts(products);
