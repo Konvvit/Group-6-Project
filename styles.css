@@ -47,6 +47,7 @@ header .shopping span {
 .categories {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .category-btn {
@@ -80,6 +81,11 @@ header .shopping span {
     padding: 20px;
     box-shadow: 0 50px 50px #757676;
     letter-spacing: 1px;
+    display: none;
+}
+
+.item.show {
+    display: block;
 }
 
 /* Styling for the product image within each item */
