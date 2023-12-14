@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 200vh;
+    background-color: antiquewhite;
+}
+
+
+
+header, nav {
+    background-color: #333;
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+    background-image: url('image/pngtree.jpg');
+
+
+
+}
+
+header, h1 {
+    color: wheat;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    color: #ebe3e3;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #020101;
+
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: wheat;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 10px;
+    height: auto;
+}
+
+.order-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #af4c4c;
+    color: white;
+    border: none;
+}
+
+.order-button:hover {
+    background-color: #a04845;
+}
