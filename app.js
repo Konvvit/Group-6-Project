@@ -1,5 +1,5 @@
-import products from "./mockData.js";
 
+import db from "./db.js";
 // Selecting elements from the DOM
 let openShopping = document.querySelector(".shopping");
 let closeShopping = document.querySelector(".closeShopping");
@@ -9,6 +9,7 @@ let body = document.querySelector("body");
 let total = document.querySelector(".total");
 let quantity = document.querySelector(".quantity");
 let addToCartButtons;
+let categoriesContainer = document.querySelector(".categories")
 let categoryBtns = document.getElementsByClassName("category-btn");
 // Event listener for opening the shopping cart
 openShopping.addEventListener("click", () => {
@@ -103,42 +104,106 @@ function changeQuantity(index, quantity) {
   reloadCard();
 }
 
+
+// Generate the menu items from the db.js
 function mockDataTest() {
-  products.forEach((product) => {
-    const menuElement = document.createElement("div");
-    menuElement.innerHTML = 
-        `<div class="item" 
-            data-id="${product.id}" 
-            data-name="${product.name}" 
-            data-image="${product.image}" 
-            data-price="${product.price}" 
-            data-category="${product.category}">
-        <img src="${product.image}" alt="Product 2">
-        <div class="title">${product.name}</div>
-        <div class="price">${product.price}${product.valuta}</div>
-        <div class="beskrivning">${product.beskrivning}</div>
-        <button class="add-to-cart">Add To Cart</button>
-    </div>`;
-    list.appendChild(menuElement);
-    console.log(
-      `Product ID: ${product.id}, Name: ${product.name}, Price: ${product.price}`
-    );
-  });
+  list.innerHTML=""
+
+  for (const categoryKey in db) {
+    if (Object.hasOwnProperty.call(db, categoryKey)) {
+      const category = db[categoryKey];
+      
+      if (Array.isArray(category)) {
+        category.forEach((product) => {
+          const menuElement = document.createElement("div");
+          menuElement.innerHTML = 
+              `<div class="item show"
+                  data-id="${product.id}" 
+                  data-name="${product.name}" 
+                  data-image="${product.img}" 
+                  data-price="${product.price}" 
+                  data-category="${product.category}">
+              <img src="${product.img}" alt="Product 2">
+              <div class="title">${product.name}</div>
+              <div class="price">${product.price}kr</div>
+              <div class="beskrivning">${product.dsc}</div>
+              <button class="add-to-cart">Add To Cart</button>
+          </div>`;
+          list.appendChild(menuElement);
+        });
+
+      } else {
+        console.error(`Invalid data format: ${categoryKey} is not an array`)
+      }
+    }
+  }
   addToCartButtons = document.querySelectorAll(".add-to-cart");
   addToCartButtons.forEach((button) => {
     button.addEventListener("click", addToCard);
   });
 }
 
+// filtering the menu items depending on the clicked category 
+function filterItemsByCategory(category) {
+  // if the selected category is "visa alla", display all the items
+  if ( category === "Visa Alla") {
+    mockDataTest()
+  } else {
+    console.log(category)
+    list.innerHTML = ''; // Clear the existing items
+    
+    // a loop to iterate in the db.js and display only the items from the clicked category
+    for (const product of db[category]) {
+        const menuElement = document.createElement('div');
+        menuElement.innerHTML = `
+            <div class="item show" data-id="${product.id}" data-name="${product.name}" data-image="${product.img}" data-price="${product.price}">
+                <img src="${product.img}" alt="${product.name}">
+                <div class="title">${product.name}</div>
+                <div class="description">${product.dsc}</div>
+                <div class="price">$${product.price.toFixed(2)}</div>
+                <button class="add-to-cart">Add To Cart</button>
+            </div>
+        `;
+        list.appendChild(menuElement);
+    }
+  }
+}
 mockDataTest();
 
-for (var i = 0; i < categoryBtns.length; i++) {
-  categoryBtns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
+// iterate in the db.js to generate and display categories buttons dynamically from the db.js
+for (const category in db) {
+  const categoryElement = document.createElement("button");
+  categoryElement.classList.add("category-btn");
+  categoryElement.innerHTML = `${category}`
+  categoriesContainer.appendChild(categoryElement)
+}
+
+// Add .active class to the selected category and send the selected category to the filter function
+for (const categoryBtn of categoryBtns) {
+  categoryBtn.addEventListener('click', function () {
+      const current = document.querySelector('.category-btn.active');
+      if (current) {
+          current.classList.remove('active');
+      }
+
+      this.classList.add('active');
+      const selectedCategory = this.innerHTML;
+      console.log(`Category is: ${selectedCategory}`);
+      
+      // Filter and display items based on the selected category
+      filterItemsByCategory(selectedCategory);
   });
 }
+
+
+// for (var i = 0; i < categoryBtns.length; i++) {
+//   categoryBtns[i].addEventListener("click", function() {
+//     var current = document.getElementsByClassName("active");
+//     current[0].className = current[0].className.replace(" active", "");
+//     this.className += " active";
+//     console.log(`Category is : ${this.innerHTML}` )
+//   });
+// }
 
 
 // No need for initApp as the products are already defined in HTML
