@@ -1,4 +1,3 @@
-
 import db from "./db.js";
 // Selecting elements from the DOM
 let openShopping = document.querySelector(".shopping");
