@@ -223,4 +223,20 @@ header .shopping span {
     height: auto; /* This keeps the aspect ratio of the image */
 }
 
+@media (max-width: 768px) {
+    .item {
+        flex: 0 0 50%;
+    }
+
+    .name {
+        display: none;
+    }
+}
+/* Styles for larger screens remain unchanged */
+@media (max-width: 480px) {
+    #item-slider {
+        display: none;
+    }
+}
+
 /*_______________________________________________________________________________________*/
