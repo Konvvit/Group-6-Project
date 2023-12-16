@@ -1,31 +1,31 @@
-import db from "./db.js";
+import db from './db.js'
 // Selecting elements from the DOM
-let openShopping = document.querySelector(".shopping");
-let closeShopping = document.querySelector(".closeShopping");
-let list = document.querySelector(".list");
-let listCard = document.querySelector(".listCard");
-let body = document.querySelector("body");
-let total = document.querySelector(".total");
-let quantity = document.querySelector(".quantity");
-let addToCartButtons;
-let categoriesContainer = document.querySelector(".categories")
-let categoryBtns = document.getElementsByClassName("category-btn");
+let openShopping = document.querySelector('.shopping')
+let closeShopping = document.querySelector('.closeShopping')
+let list = document.querySelector('.list')
+let listCard = document.querySelector('.listCard')
+let body = document.querySelector('body')
+let total = document.querySelector('.total')
+let quantity = document.querySelector('.quantity')
+let addToCartButtons
+let categoriesContainer = document.querySelector('.categories')
+let categoryBtns = document.getElementsByClassName('category-btn')
 // Event listener for opening the shopping cart
-openShopping.addEventListener("click", () => {
-  body.classList.add("active");
-});
+openShopping.addEventListener('click', () => {
+  body.classList.add('active')
+})
 
 // Event listener for closing the shopping cart
-closeShopping.addEventListener("click", () => {
-  body.classList.remove("active");
-});
+closeShopping.addEventListener('click', () => {
+  body.classList.remove('active')
+})
 
 // Array to store selected items in the cart
-let listCards = [];
+let listCards = []
 
 // Function to create a cart item HTML element
 function createCartItem(item) {
-  let cartItem = document.createElement("li");
+  let cartItem = document.createElement('li')
   cartItem.innerHTML = `
         <div><img src="${item.image}" alt="${item.name}"/></div>
         <div>${item.name}</div>
@@ -38,24 +38,24 @@ function createCartItem(item) {
             <button onclick="changeQuantity(${item.id - 1}, ${
     item.quantity + 1
   })">+</button>
-        </div>`;
-  return cartItem;
+        </div>`
+  return cartItem
 }
 
 // Function to add a product to the cart
 function addToCard({ target: menuItem }) {
   let productElement = document.querySelector(
-    `.item[data-id="${menuItem.closest(".item").dataset.id}"]`
-  );
-  console.log(productElement);
+    `.item[data-id="${menuItem.closest('.item').dataset.id}"]`
+  )
+  console.log(productElement)
   if (productElement) {
     let existingItem = listCards.find(
       (item) => item && item.id === parseInt(productElement.dataset.id, 10)
-    );
+    )
 
     if (existingItem) {
       // Item already exists, update quantity
-      existingItem.quantity += 1;
+      existingItem.quantity += 1
     } else {
       // Item does not exist, add it to the list
       listCards.push({
@@ -64,115 +64,147 @@ function addToCard({ target: menuItem }) {
         image: productElement.dataset.image,
         price: parseInt(productElement.dataset.price, 10),
         quantity: 1,
-      });
+      })
     }
 
     // Reload the cart to reflect changes
-    reloadCard();
+    reloadCard()
   }
 }
 
 // Function to reload the shopping cart
 function reloadCard() {
-  listCard.innerHTML = "";
-  let count = 0;
-  let totalPrice = 0;
+  listCard.innerHTML = ''
+  let count = 0
+  let totalPrice = 0
 
   listCards.forEach((item) => {
-    totalPrice += item.price * item.quantity;
-    count += item.quantity;
-    listCard.appendChild(createCartItem(item));
-  });
+    totalPrice += item.price * item.quantity
+    count += item.quantity
+    listCard.appendChild(createCartItem(item))
+  })
 
   // Update total and quantity display
-  total.innerText = totalPrice + "kr";
-  quantity.innerText = count;
+  total.innerText = totalPrice + 'kr'
+  quantity.innerText = count
 }
 
 // Function to change the quantity of a product in the cart
 function changeQuantity(index, quantity) {
   if (quantity === 0) {
     // Remove the item if quantity becomes zero
-    listCards = listCards.filter((item, i) => i !== index);
+    listCards = listCards.filter((item, i) => i !== index)
   } else {
     // Update the quantity of the item
-    listCards[index].quantity = quantity;
+    listCards[index].quantity = quantity
   }
 
   // Reload the cart to reflect changes
-  reloadCard();
+  reloadCard()
 }
-
 
 // Generate the menu items from the db.js
 function mockDataTest() {
-  list.innerHTML=""
+  list.innerHTML = ''
 
   for (const categoryKey in db) {
     if (Object.hasOwnProperty.call(db, categoryKey)) {
-      const category = db[categoryKey];
-      
+      const category = db[categoryKey]
+
       if (Array.isArray(category)) {
         category.forEach((product) => {
-          const menuElement = document.createElement("div");
-          menuElement.innerHTML = 
-              `<div class="item show"
-                  data-id="${product.id}" 
-                  data-name="${product.name}" 
-                  data-image="${product.img}" 
-                  data-price="${product.price}" 
+          const menuElement = document.createElement('div')
+          menuElement.innerHTML = `<div class="item show"
+                  data-id="${product.id}"
+                  data-name="${product.name}"
+                  data-image="${product.img}"
+                  data-price="${product.price}"
                   data-category="${product.category}">
               <img src="${product.img}" alt="Product 2">
               <div class="title">${product.name}</div>
               <div class="price">${product.price}kr</div>
               <div class="beskrivning">${product.dsc}</div>
               <button class="add-to-cart">Add To Cart</button>
-          </div>`;
-          list.appendChild(menuElement);
-        });
-
+          </div>`
+          list.appendChild(menuElement)
+        })
       } else {
         console.error(`Invalid data format: ${categoryKey} is not an array`)
       }
     }
   }
-  addToCartButtons = document.querySelectorAll(".add-to-cart");
+  addToCartButtons = document.querySelectorAll('.add-to-cart')
   addToCartButtons.forEach((button) => {
-    button.addEventListener("click", addToCard);
-  });
+    button.addEventListener('click', addToCard)
+  })
 }
 
-// filtering the menu items depending on the clicked category 
+// filtering the menu items depending on the clicked category
 function filterItemsByCategory(category) {
   // if the selected category is "visa alla", display all the items
-  if ( category === "Visa Alla") {
+  if (category === 'Visa Alla') {
     mockDataTest()
   } else {
     console.log(category)
-    list.innerHTML = ''; // Clear the existing items
-    
+    list.innerHTML = '' // Clear the existing items
+
     // a loop to iterate in the db.js and display only the items from the clicked category
     for (const product of db[category]) {
-        const menuElement = document.createElement('div');
-        menuElement.innerHTML = `
-            <div class="item show" data-id="${product.id}" data-name="${product.name}" data-image="${product.img}" data-price="${product.price}">
+      const menuElement = document.createElement('div')
+      menuElement.innerHTML = `
+            <div class="item show" data-id="${product.id}" data-name="${
+        product.name
+      }" data-image="${product.img}" data-price="${product.price}">
                 <img src="${product.img}" alt="${product.name}">
                 <div class="title">${product.name}</div>
                 <div class="description">${product.dsc}</div>
                 <div class="price">$${product.price.toFixed(2)}</div>
                 <button class="add-to-cart">Add To Cart</button>
             </div>
-        `;
-        list.appendChild(menuElement);
+        `
+      list.appendChild(menuElement)
     }
   }
 }
-mockDataTest();
+/*___________________________featured-items-slider_________________________*/
+//place before the mockDataTest function call??
+
+function loadItems() {
+  const container = document.getElementById('item-slider')
+  db.bbqs.slice(0, 3).forEach((item) => {
+    container.appendChild(createItemElement(item))
+  })
+}
+
+function createItemElement(item) {
+  const div = document.createElement('div')
+  div.className = 'item'
+  div.innerHTML = `<img src="${item.img}" alt="${item.name}">`
+  return div
+}
+
+function slideItems() {
+  const container = document.getElementById('item-slider')
+  if (container.children.length > 0) {
+    const firstItem = container.firstChild
+    container.removeChild(firstItem) // Remove the first item
+  }
+  const newItemIndex = Math.floor(Math.random() * db.bbqs.length)
+  container.appendChild(createItemElement(db.bbqs[newItemIndex])) // Add a new random item
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadItems()
+  setInterval(slideItems, 3000) // Adjust time as needed
+})
+
+/*___________________________featured-items-slider_________________________*/
+mockDataTest()
 
 // iterate in the db.js to generate and display categories buttons dynamically from the db.js
 for (const category in db) {
-  const categoryElement = document.createElement("button");
-  categoryElement.classList.add("category-btn");
+  const categoryElement = document.createElement('button')
+  categoryElement.classList.add('category-btn')
   categoryElement.innerHTML = `${category}`
   categoriesContainer.appendChild(categoryElement)
 }
@@ -180,20 +212,19 @@ for (const category in db) {
 // Add .active class to the selected category and send the selected category to the filter function
 for (const categoryBtn of categoryBtns) {
   categoryBtn.addEventListener('click', function () {
-      const current = document.querySelector('.category-btn.active');
-      if (current) {
-          current.classList.remove('active');
-      }
+    const current = document.querySelector('.category-btn.active')
+    if (current) {
+      current.classList.remove('active')
+    }
 
-      this.classList.add('active');
-      const selectedCategory = this.innerHTML;
-      console.log(`Category is: ${selectedCategory}`);
-      
-      // Filter and display items based on the selected category
-      filterItemsByCategory(selectedCategory);
-  });
+    this.classList.add('active')
+    const selectedCategory = this.innerHTML
+    console.log(`Category is: ${selectedCategory}`)
+
+    // Filter and display items based on the selected category
+    filterItemsByCategory(selectedCategory)
+  })
 }
-
 
 // for (var i = 0; i < categoryBtns.length; i++) {
 //   categoryBtns[i].addEventListener("click", function() {
@@ -203,6 +234,5 @@ for (const categoryBtn of categoryBtns) {
 //     console.log(`Category is : ${this.innerHTML}` )
 //   });
 // }
-
 
 // No need for initApp as the products are already defined in HTML
