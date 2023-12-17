@@ -30,8 +30,9 @@ nav {
 }
 
 nav a {
-    color: #ebe3e3;
+    color: #ffffff;
     text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 nav a:hover {
@@ -88,4 +89,39 @@ nav a:hover {
 
 .order-button:hover {
     background-color: #a04845;
+}
+
+.login-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #af4c4c;
+    color: white;
+    border: none;
+}
+
+.login-button:hover {
+    background-color:#a04845
+}
+
+.item-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #af4c4c;
+    color: white;
+    border: none;
+}
+
+.item-button {
+    background-color: #a04845;
+    color: white;
 }
