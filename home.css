@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #E3E7E8;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 3rem;
+}
+nav a {
+    margin-right: 3rem;
+    text-decoration: none;
+    color: #5B3224;
+    font-size: 1.3rem;
+    background-color: #DFD4BD;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/image/Taverna-Bar.jpg");
+  height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative
+}
+.hero-text {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    margin-block: 2rem;
+}
+.hero-text h1 {
+    margin-bottom: 5rem;
+}
+.hero-text a {
+    text-decoration: none;
+    color: #fff;
+    background-color: tomato;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 25px;
+}
+
+.featured {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.featured h2{
+    font-size: 3rem;
+    text-align: center;
+    margin-block: 5rem;
+}
+
+.slider-container {
+    max-width: 1200px;
+    position: relative;
+}
+.slider-container i {
+    background-color: #fff;
+    width: 46px;
+    height: 46px;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slider-container i:first-child{
+    left: -23px;
+    display: none;
+}
+
+.slider-container i:last-child{
+    right: -23px;
+}
+
+.image-container {
+    font-size: 0px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.image-container.dragging {
+    cursor: grab;
+    scroll-behavior: auto;
+}
+
+.image-container.dragging img {
+    pointer-events: none;
+}
+
+.image-container img {
+    object-fit: cover;
+    margin-left: 14px;
+    width: calc(100% /3);
+}
+.image-container img:first-child {
+    margin-left: 0px;
+}
+
+.about-us {
+    margin-top: 2rem;
+}
+
+.about-us h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 800;
+}
+
+.about-us-1, .about-us-2 {
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.about-us-text-1, .about-us-text-2 {
+    max-width: 600px;
+}
+.about-us-1 p, .about-us-2 p {
+    font-size: 1.8rem;
+    text-align: center;
+    line-height: 45px;
+
+}
+
+.about-us-middle {
+    text-align: center;
+    font-size: 3rem;
+    max-width: 700px;
+    margin: 2rem auto;
+    line-height: 60px;
+}
+
+.about-us-2 {
+    flex-direction: row-reverse;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #2d3e52;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-block: 2rem;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 22px;
+}
+.social-links i {
+    margin-right: .5rem;
+}
+@media screen and (max-width: 900px){
+    .image-container img {
+        width: calc(100% / 2);
+    }
+}
+@media screen and (max-width: 550px){
+    .image-container img {
+        width: 100%;
+    }
+}
