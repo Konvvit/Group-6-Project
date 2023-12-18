@@ -31,26 +31,24 @@ function createCartItem(item) {
         <div>${item.name}</div>
         <div>${item.price * item.quantity}kr</div>
         <div>
-            <button onclick="changeQuantity(${item.id - 1}, ${
-    item.quantity - 1
-  })">-</button>
+            <button onclick="changeQuantity('${item.id}', ${item.quantity - 1})">-</button>
             <div class="count">${item.quantity}</div>
-            <button onclick="changeQuantity(${item.id - 1}, ${
-    item.quantity + 1
-  })">+</button>
+            <button onclick="changeQuantity('${item.id}', ${item.quantity + 1})">+</button>
         </div>`;
   return cartItem;
 }
+
+
 
 // Function to add a product to the cart
 function addToCard({ target: menuItem }) {
   let productElement = document.querySelector(
     `.item[data-id="${menuItem.closest(".item").dataset.id}"]`
   );
-  console.log(productElement);
+
   if (productElement) {
     let existingItem = listCards.find(
-      (item) => item && item.id === parseInt(productElement.dataset.id, 10)
+      (item) => item && item.id === productElement.dataset.id
     );
 
     if (existingItem) {
@@ -59,7 +57,7 @@ function addToCard({ target: menuItem }) {
     } else {
       // Item does not exist, add it to the list
       listCards.push({
-        id: parseInt(productElement.dataset.id, 10),
+        id: productElement.dataset.id,
         name: productElement.dataset.name,
         image: productElement.dataset.image,
         price: parseInt(productElement.dataset.price, 10),
@@ -90,18 +88,23 @@ function reloadCard() {
 }
 
 // Function to change the quantity of a product in the cart
-function changeQuantity(index, quantity) {
-  if (quantity === 0) {
-    // Remove the item if quantity becomes zero
-    listCards = listCards.filter((item, i) => i !== index);
-  } else {
-    // Update the quantity of the item
-    listCards[index].quantity = quantity;
-  }
+window.changeQuantity = function(id, newQuantity) {
+  const index = listCards.findIndex(item => item.id === id);
 
-  // Reload the cart to reflect changes
-  reloadCard();
+  if (index !== -1) {
+    if (newQuantity <= 0) {
+      // Remove the item if the new quantity is less than or equal to 0
+      listCards.splice(index, 1);
+    } else {
+      // Update the quantity of the item
+      listCards[index].quantity = newQuantity;
+    }
+
+    reloadCard();
+  }
 }
+
+
 
 
 // Generate the menu items from the db.js
@@ -165,8 +168,14 @@ function filterItemsByCategory(category) {
         `;
         list.appendChild(menuElement);
     }
+    addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach((button) => {
+        button.addEventListener("click", addToCard);
+    });
   }
 }
+
+
 mockDataTest();
 
 // iterate in the db.js to generate and display categories buttons dynamically from the db.js
