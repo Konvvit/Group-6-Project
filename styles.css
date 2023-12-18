@@ -15,8 +15,8 @@
 
 /* Styling for the header section */
 main {
-    display: grid;
-    grid-template-columns: 1fr 50px;
+    display: flex;
+    flex-direction: column;
     margin-top: 50px;
 }
 
@@ -44,7 +44,12 @@ main .shopping span {
     left: 80%;
     padding: 3px 10px;
 }
-
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 2rem;
+}
 .categories {
     display: flex;
     justify-content: space-around;

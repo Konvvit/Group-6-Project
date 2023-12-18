@@ -16,7 +16,7 @@ nav {
     align-items: center;
     padding-inline: 3rem;
 }
-nav a {
+.nav-links a {
     margin-right: 3rem;
     text-decoration: none;
     color: #5B3224;
