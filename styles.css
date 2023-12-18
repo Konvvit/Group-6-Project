@@ -177,7 +177,7 @@ header .shopping span {
 .listCard li {
     display: grid;
     grid-template-columns: 100px repeat(3, 1fr);
-    color: #fff;
+    color: #ffffff;
     row-gap: 10px;
 }
 
@@ -202,4 +202,11 @@ header .shopping span {
 /* Styling for the count display within the list of items */
 .listCard .count {
     margin: 0 10px;
+}
+
+.listCardContainer {
+    max-height: 900px;
+    /* Set your preferred max height */
+    overflow-y: auto;
+    /* Enable vertical scrollbar when content exceeds the height */
 }
