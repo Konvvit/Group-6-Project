@@ -96,7 +96,6 @@ main .shopping span {
 
 /* Styling for the product image within each item */
 .list .item img {
-    border: 1px solid red;
     width: 100%;
     object-fit: cover;
 }
