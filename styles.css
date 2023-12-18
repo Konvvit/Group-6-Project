@@ -1,14 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url("home.css");
+
+
 
 /* Styling for the body */
-body {
-    background-color: #E3E7E8;
-    font-family: system-ui;
-}
+
 
 /* Styling for the main container */
 .container {
@@ -19,25 +14,25 @@ body {
 }
 
 /* Styling for the header section */
-header {
+main {
     display: grid;
     grid-template-columns: 1fr 50px;
     margin-top: 50px;
 }
 
 /* Styling for the shopping cart icon */
-header .shopping {
+main .shopping {
     position: relative;
     text-align: right;
 }
 
 /* Styling for the shopping cart icon image */
-header .shopping img {
+main .shopping img {
     width: 40px;
 }
 
 /* Styling for the notification quantity badge */
-header .shopping span {
+main .shopping span {
     background: red;
     border-radius: 50%;
     display: flex;
@@ -87,7 +82,7 @@ header .shopping span {
     box-shadow: 0 50px 50px #757676;
     letter-spacing: 1px;
     display: none;
-    height: auto;
+    
 }
 
 .item.show {
@@ -96,8 +91,8 @@ header .shopping span {
 
 /* Styling for the product image within each item */
 .list .item img {
-    width: 90%;
-    
+    border: 1px solid red;
+    width: 100%;
     object-fit: cover;
 }
 
