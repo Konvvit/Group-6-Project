@@ -7,7 +7,8 @@
 
 /* Styling for the main container */
 .container {
-   max-width: 1500px;
+   max-width: 100%;
+   width: 1200px;
     margin: auto;
     transition: 0.5s;
     /* Smooth transition effect */
@@ -18,12 +19,14 @@ main {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
+    
 }
 
 /* Styling for the shopping cart icon */
 main .shopping {
     position: relative;
     text-align: right;
+    
 }
 
 /* Styling for the shopping cart icon image */
@@ -73,7 +76,7 @@ main .shopping span {
 /* Styling for the product list */
 .list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     column-gap: 20px;
     row-gap: 20px;
     margin-top: 50px;
@@ -202,6 +205,9 @@ main .shopping span {
 .listCard li button {
     background-color: #fff5;
     border: none;
+    font-size: 0.5em;
+    padding: 7px 7px;
+        
 }
 
 /* Styling for the count display within the list of items */
@@ -214,4 +220,122 @@ main .shopping span {
     /* Set your preferred max height */
     overflow-y: auto;
     /* Enable vertical scrollbar when content exceeds the height */
+}
+
+
+
+
+
+
+/* Common styles for smaller screens */
+@media only screen and (max-width: 768px) {
+    
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        margin-right: 0.5rem;
+         font-size: 0.8rem;
+         /* Adjust font size for smaller screens */
+         padding: 6px 10px;
+          /* Adjust padding for smaller screens */
+                }
+
+    header {
+        text-align: center;
+    }
+
+    .hero-text {
+        display: none;
+        /* Hide the hero text on smaller screens */
+    }
+
+    .hero-text a {
+        display: block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 1em;
+        /* Adjust the font size as needed */
+    }
+
+    .categories {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .category-btn {
+        margin-right: 5px;
+    }
+
+    .list {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 10px;
+    }
+
+    .card {
+        position: fixed;
+        top: 0;
+        left: 100%;
+    }
+
+    .listCard li {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    footer {
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-links a {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+        .listCard .count {
+            margin: 0 15px;
+            /* Increase margin for better spacing */
+            font-size: 1em;
+            /* Adjust the font size as needed */
+        }
+    
+        /* Styling for buttons within the list of items */
+        .listCard li button {
+            background-color: #fff5;
+            border: none;
+            font-size: 0.5em;
+            /* Adjust the font size as needed */
+            padding: 7px 7px;
+            /* Adjust padding for better spacing */
+        }
+
+   main .shopping {
+       position: sticky;
+       top: 0;
+       /* Adjust the top position as needed */
+       background-color: #ffffff;
+       /* Adjust the background color as needed */
+       z-index: 1000;
+       /* Ensure the shopping cart is above other elements */
+   }
+
+   main .shopping img {
+       margin-left: 150px;
+       /* Adjust the left margin as needed */
+   }
+
 }

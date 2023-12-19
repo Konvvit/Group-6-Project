@@ -9,71 +9,97 @@ body {
     background-color: #E3E7E8;
 }
 
-
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 3rem;
+    padding-inline: 1rem;
+    /* Adjust padding for smaller screens */
 }
+
 .nav-links a {
-    margin-right: 3rem;
+    margin-right: 1rem;
+    /* Adjust margin for smaller screens */
     text-decoration: none;
     color: #5B3224;
-    font-size: 1.3rem;
-    background-color: #DFD4BD;
-    padding: 10px 20px;
+    background-color: #E3E7E8;
+    font-size: 1rem;
+    /* Adjust font size for smaller screens */
+    padding: 8px 16px;
+    /* Adjust padding for smaller screens */
     border-radius: 50px;
 }
+
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/image/Taverna-Bar.jpg");
-  height: 50vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative
+    height: vh;
+    /* Adjust height for smaller screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
+
 .hero-text {
     text-align: center;
     color: #fff;
-    font-size: 2rem;
-    margin-block: 2rem;
+    font-size: 1.5rem;
+    /* Adjust font size for smaller screens */
+    margin-block: 1rem;
+    /* Adjust margin for smaller screens */
 }
+
 .hero-text h1 {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
+    /* Adjust margin for smaller screens */
 }
+
 .hero-text a {
     text-decoration: none;
     color: #fff;
     background-color: tomato;
-    padding: 10px 25px;
+    padding: 8px 16px;
+    /* Adjust padding for smaller screens */
     border-radius: 50px;
-    font-size: 25px;
+    font-size: 1rem;
+    /* Adjust font size for smaller screens */
 }
 
 .featured {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.featured h2{
-    font-size: 3rem;
+
+.featured h2 {
+    font-size: 2rem;
+    /* Adjust font size for smaller screens */
     text-align: center;
-    margin-block: 5rem;
+    margin-block: 3rem;
+    /* Adjust margin for smaller screens */
 }
 
 .slider-container {
-    max-width: 1200px;
+    max-width: 100%;
+    /* Adjust max-width for smaller screens */
     position: relative;
 }
+
+.slider-container img {
+    max-width: 100%;
+    height: auto;
+}
+
 .slider-container i {
     background-color: #fff;
-    width: 46px;
-    height: 46px;
-    text-align: center;
-    font-size: 1.2rem;
-    line-height: 46px;
+    width: 36px;
+    /* Adjust width for smaller screens */
+    height: 36px;
+    /* Adjust height for smaller screens */
+    font-size: 1rem;
+    /* Adjust font size for smaller screens */
+    line-height: 36px;
+    /* Adjust line-height for smaller screens */
     border-radius: 50%;
     cursor: pointer;
     position: absolute;
@@ -81,13 +107,15 @@ nav {
     transform: translateY(-50%);
 }
 
-.slider-container i:first-child{
-    left: -23px;
+.slider-container i:first-child {
+    left: -18px;
+    /* Adjust left for smaller screens */
     display: none;
 }
 
-.slider-container i:last-child{
-    right: -23px;
+.slider-container i:last-child {
+    right: -18px;
+    /* Adjust right for smaller screens */
 }
 
 .image-container {
@@ -109,82 +137,180 @@ nav {
 
 .image-container img {
     object-fit: cover;
-    margin-left: 14px;
-    width: calc(100% /3);
-}
-.image-container img:first-child {
-    margin-left: 0px;
-}
-
-.about-us {
-    margin-top: 2rem;
+    margin-left: 7px;
+    /* Adjust margin for smaller screens */
+    width: calc(50% / 2);
+    /* Adjust width for smaller screens */
 }
 
 .about-us h2 {
-    font-size: 3rem;
+    font-size: 2rem;
+    /* Adjust font size for smaller screens */
     text-align: center;
-    margin-bottom: 2rem;
-    font-weight: 800;
+    margin-bottom: 1.5rem;
+    /* Adjust margin for smaller screens */
+    font-weight: 200px;
 }
 
-.about-us-1, .about-us-2 {
-    
+.about-us-1,
+.about-us-2 {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
 }
 
-.about-us-text-1, .about-us-text-2 {
-    max-width: 600px;
+
+.about-us-text-1 {
+    
+    max-width: 100vh;
+    /* Adjust max-width for smaller screens */
+    order: 1;
+    
 }
-.about-us-1 p, .about-us-2 p {
-    font-size: 1.8rem;
+
+.about-us-text-2 {
+
+    max-width: 100%;
+    /* Adjust max-width for smaller screens */
+    order: 0;
+
+}
+
+.about-us-1 img,
+.about-us-2 img {
+    max-width: 100hv;
+    /* Limit the width of the image to half of the container */
+    
+}
+
+.about-us-1 p,
+.about-us-2 p {
+    font-size: 1.5rem;
+    /* Adjust font size for smaller screens */
     text-align: center;
-    line-height: 45px;
-
+    line-height: 35px;
+    /* Adjust line-height for smaller screens */
 }
+
+
 
 .about-us-middle {
     text-align: center;
-    font-size: 3rem;
-    max-width: 700px;
-    margin: 2rem auto;
-    line-height: 60px;
-}
-
-.about-us-2 {
-    flex-direction: row-reverse;
+    font-size: 2rem;
+    /* Adjust font size for smaller screens */
+    max-width: 100%;
+    /* Adjust max-width for smaller screens */
+    margin: 1rem auto;
+    /* Adjust margin for smaller screens */
+    line-height: 45px;
+    /* Adjust line-height for smaller screens */
 }
 
 .footer-links {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    /* Adjust flex-direction for smaller screens */
+    justify-content: center;
     align-items: center;
     background-color: #2d3e52;
 }
 
 .social-links {
     display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-block: 2rem;
+    flex-direction: row;
+    /* Adjust flex-direction for smaller screens */
+    gap: 1rem;
+    /* Adjust gap for smaller screens */
+    margin-block: 1rem;
+    /* Adjust margin for smaller screens */
 }
 
 .social-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 18px;
+    /* Adjust font size for smaller screens */
 }
-.social-links i {
-    margin-right: .5rem;
-}
-@media screen and (max-width: 900px){
-    .image-container img {
-        width: calc(100% / 2);
+
+@media screen and (max-width: 900px) {
+    .nav-links a {
+        margin-right: 1rem;
+        font-size: 0.9rem;
+        /* Adjust font size for smaller screens */
+        padding: 8px 12px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .hero-text {
+        font-size: 1.2rem;
+        /* Adjust font size for smaller screens */
+        margin-block: 1rem;
+        /* Adjust margin for smaller screens */
+    }
+
+    .hero-text h1 {
+        margin-bottom: 1.5rem;
+        /* Adjust margin for smaller screens */
+    }
+
+    .hero-text a {
+        padding: 8px 12px;
+        /* Adjust padding for smaller screens */
+        font-size: 0.9rem;
+        /* Adjust font size for smaller screens */
+    }
+
+    .featured h2 {
+        font-size: 1.5rem;
+        /* Adjust font size for smaller screens */
+        margin-block: 2rem;
+        /* Adjust margin for smaller screens */
     }
 }
-@media screen and (max-width: 550px){
-    .image-container img {
-        width: 100%;
+
+@media screen and (max-width: 550px) {
+    .nav-links a {
+        margin-right: 0.5rem;
+        /* Adjust margin for smaller screens */
+        font-size: 0.8rem;
+        /* Adjust font size for smaller screens */
+        padding: 6px 10px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .hero-text {
+        font-size: 1rem;
+        /* Adjust font size for smaller screens */
+        margin-block: 0.5rem;
+        /* Adjust margin for smaller screens */
+    }
+
+    .hero-text h1 {
+        margin-bottom: 1rem;
+        /* Adjust margin for smaller screens */
+    }
+
+    .hero-text a {
+        padding: 6px 10px;
+        /* Adjust padding for smaller screens */
+        font-size: 0.8rem;
+        /* Adjust font size for smaller screens */
+    }
+
+    .featured h2 {
+        font-size: 1.2rem;
+        /* Adjust font size for smaller screens */
+        margin-block: 1.5rem;
+        /* Adjust margin for smaller screens */
+    }
+}
+
+/* Reorder the layout for smaller screens */
+@media screen and (max-width: 768px) {
+
+    .about-us-1,
+    .about-us-2 {
+        flex-direction: column;
+        /* Change to column layout for smaller screens */
     }
 }
