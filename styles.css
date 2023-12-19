@@ -216,7 +216,7 @@ main .shopping span {
 }
 
 .listCardContainer {
-    max-height: 900px;
+    max-height: 700px;
     /* Set your preferred max height */
     overflow-y: auto;
     /* Enable vertical scrollbar when content exceeds the height */
