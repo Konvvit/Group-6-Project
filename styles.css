@@ -7,8 +7,8 @@
 
 /* Styling for the main container */
 .container {
-   max-width: 100%;
-   width: 1200px;
+    max-width: 100%;
+    width: 1200px;
     margin: auto;
     transition: 0.5s;
     /* Smooth transition effect */
@@ -47,12 +47,14 @@ main .shopping span {
     left: 80%;
     padding: 3px 10px;
 }
+
 .container-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-block: 2rem;
 }
+
 .categories {
     display: flex;
     justify-content: space-around;
@@ -70,9 +72,11 @@ main .shopping span {
     background-color: #1C1F25;
     color: #fff;
 }
+
 .category-btn:not(.active):hover {
     background-color: #f3f0f0;
 }
+
 /* Styling for the product list */
 .list {
     display: grid;
@@ -227,11 +231,15 @@ main .shopping span {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%; /* Adjust as needed */
+    width: 80%;
+    /* Adjust as needed */
     text-align: center;
-    background-color: white; /* Optional, for visibility */
-    padding: 10px; /* Optional, for better spacing */
-    border-radius: 5px; /* Optional, for aesthetics */
+    background-color: white;
+    /* Optional, for visibility */
+    padding: 10px;
+    /* Optional, for better spacing */
+    border-radius: 5px;
+    /* Optional, for aesthetics */
 }
 
 
@@ -252,11 +260,11 @@ main .shopping span {
 
     .nav-links a {
         margin-right: 0.5rem;
-         font-size: 0.8rem;
-         /* Adjust font size for smaller screens */
-         padding: 6px 10px;
-          /* Adjust padding for smaller screens */
-                }
+        font-size: 0.8rem;
+        /* Adjust font size for smaller screens */
+        padding: 6px 10px;
+        /* Adjust padding for smaller screens */
+    }
 
     header {
         text-align: center;
@@ -316,37 +324,37 @@ main .shopping span {
         margin-bottom: 10px;
     }
 
-        .listCard .count {
-            margin: 0 15px;
-            /* Increase margin for better spacing */
-            font-size: 1em;
-            /* Adjust the font size as needed */
-        }
+    .listCard .count {
+        margin: 0 15px;
+        /* Increase margin for better spacing */
+        font-size: 1em;
+        /* Adjust the font size as needed */
+    }
 
-        /* Styling for buttons within the list of items */
-        .listCard li button {
-            background-color: #fff5;
-            border: none;
-            font-size: 0.5em;
-            /* Adjust the font size as needed */
-            padding: 7px 7px;
-            /* Adjust padding for better spacing */
-        }
+    /* Styling for buttons within the list of items */
+    .listCard li button {
+        background-color: #fff5;
+        border: none;
+        font-size: 0.5em;
+        /* Adjust the font size as needed */
+        padding: 7px 7px;
+        /* Adjust padding for better spacing */
+    }
 
-   main .shopping {
-       position: sticky;
-       top: 0;
-       /* Adjust the top position as needed */
-       background-color: #ffffff;
-       /* Adjust the background color as needed */
-       z-index: 1000;
-       /* Ensure the shopping cart is above other elements */
-   }
+    main .shopping {
+        position: sticky;
+        top: 0;
+        /* Adjust the top position as needed */
+        background-color: #ffffff;
+        /* Adjust the background color as needed */
+        z-index: 1000;
+        /* Ensure the shopping cart is above other elements */
+    }
 
-   main .shopping img {
-       margin-left: 150px;
-       /* Adjust the left margin as needed */
-   }
+    main .shopping img {
+        margin-left: 150px;
+        /* Adjust the left margin as needed */
+    }
 
 }
 
