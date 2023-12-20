@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set, viewport, and compatibility -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title and stylesheet link -->
+    <title>Food Ordering</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body class="">
+    <header>
+        <div class="hero-image">
+            <nav>
+                <div class="logo">
+                    <a href="home.html">
+                        <img src="image/barbecue-removebg-preview.png" width="150" alt="" />
+
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="menyn.html">Meny</a>
+                    <a href="/">Om Oss</a>
+                    <a href="/">Kontakta Oss</a>
+                </div>
+            </nav>
+            <div class="hero-text">
+                <h1>Välkomna till TAVERNA!</h1>
+                <a href="menyn.html">Beställ Nu!</a>
+            </div>
+        </div>
+    </header>
+    <!-- Main container for the entire page -->
+    <main class="container">
+        <div class="container-header">
+            <!-- Main title -->
+            <h1>Food Ordering</h1>
+            <div class="shopping">
+                <img src="image/shopping.svg" alt="Shopping Cart">
+                <span class="quantity">0</span>
+            </div>
+        </div>
+        <div class="categories">
+            <button class="category-btn active">Visa Alla</button>
+        </div>
+
+        <!-- Product list section -->
+        <div class="list">
+            <!-- Items are going to be added from javascript file dynamically -->
+            <!-- Add more product items as needed -->
+        </div>
+    </main>
+
+    <!-- Shopping cart modal -->
+    <div class="card">
+        <!-- Cart title -->
+        <h1>Cart</h1>
+        <div class="table-container">
+            <label for="bord-selection">Välj ett bord:</label>
+            <select id="bord-selection">
+                <option value="bord1">Bord 1</option>
+                <option value="bord2">Bord 2</option>
+                <option value="bord3">Bord 3</option>
+                <option value="bord4">Bord 4</option>
+                <option value="bord5">Bord 5</option>
+                <option value="bord6">Bord 6</option>
+            </select>
+        </div>
+        <div class="listCardContainer">
+            <ul class="listCard">
+                <!-- The selected items will be added here dynamically -->
+            </ul>
+        </div>
+        <!-- Checkout and close buttons -->
+        <div class="checkOut">
+            <div class="total">Confirm</div>
+            <div class="closeShopping">Close</div>
+        </div>
+        <div id="message" style="display: none;">Your order is being prepared. Thank you for your patience!</div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <div class="social-links">
+                <a href=""><i class="fa-brands fa-facebook"></i>Facebook</a>
+                <a href=""><i class="fa-brands fa-instagram"></i>Instagram</a>
+                <a href="/"><i class="fa-solid fa-phone"></i>076xxxxxxx</a>
+                <a href="/"><i class="fa-solid fa-envelope"></i>email@example.com</a>
+            </div>
+            <div class="footer-logo">
+                <img src="image/barbecue-removebg-preview.png" width="200" alt="" />
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript file for handling dynamic functionality -->
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
