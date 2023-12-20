@@ -60,7 +60,17 @@
     <div class="card">
         <!-- Cart title -->
         <h1>Cart</h1>
-        <!-- List of selected items will be added here dynamically -->
+        <div class="table-container">
+            <label for="bord-selection">Välj ett bord:</label>
+            <select id="bord-selection">
+                <option value="bord1">Bord 1</option>
+                <option value="bord2">Bord 2</option>
+                <option value="bord3">Bord 3</option>
+                <option value="bord4">Bord 4</option>
+                <option value="bord5">Bord 5</option>
+                <option value="bord6">Bord 6</option>
+            </select>
+        </div>
         <div class="listCardContainer">
             <ul class="listCard">
                 <!-- The selected items will be added here dynamically -->
@@ -71,7 +81,6 @@
             <div class="total">Confirm</div>
             <div class="closeShopping">Close</div>
         </div>
-        <div id="message" style="display: none;">Your order is being prepared. Thank you for your patience!</div>
     </div>
 
     <footer>
