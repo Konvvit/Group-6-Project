@@ -19,14 +19,14 @@ main {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    
+
 }
 
 /* Styling for the shopping cart icon */
 main .shopping {
     position: relative;
     text-align: right;
-    
+
 }
 
 /* Styling for the shopping cart icon image */
@@ -90,7 +90,7 @@ main .shopping span {
     box-shadow: 0 50px 50px #757676;
     letter-spacing: 1px;
     display: none;
-    
+
 }
 
 .item.show {
@@ -207,7 +207,7 @@ main .shopping span {
     border: none;
     font-size: 0.5em;
     padding: 7px 7px;
-        
+
 }
 
 /* Styling for the count display within the list of items */
@@ -222,14 +222,24 @@ main .shopping span {
     /* Enable vertical scrollbar when content exceeds the height */
 }
 
-
+.card #message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Adjust as needed */
+    text-align: center;
+    background-color: white; /* Optional, for visibility */
+    padding: 10px; /* Optional, for better spacing */
+    border-radius: 5px; /* Optional, for aesthetics */
+}
 
 
 
 
 /* Common styles for smaller screens */
 @media only screen and (max-width: 768px) {
-    
+
 
     .logo {
         margin-bottom: 20px;
@@ -312,7 +322,7 @@ main .shopping span {
             font-size: 1em;
             /* Adjust the font size as needed */
         }
-    
+
         /* Styling for buttons within the list of items */
         .listCard li button {
             background-color: #fff5;
