@@ -216,3 +216,10 @@ document.querySelector('.total').addEventListener('click', function () {
 // }
 
 // No need for initApp as the products are already defined in HTML
+
+
+
+// listens for a click on the .total div
+document.querySelector('.total').addEventListener('click', function () {
+  document.getElementById('message').style.display = 'block'
+})
